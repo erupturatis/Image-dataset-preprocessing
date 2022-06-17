@@ -19,7 +19,7 @@ class ProcessImage(object):
     def reshape_image(img_path, x:int = 128, y:int = 128):
         
         img = cv2.imread(img_path, cv2.IMREAD_UNCHANGED)
-        
+
         dim = (x, y)
 
         resized = cv2.resize(img, dim, interpolation = cv2.INTER_AREA)
@@ -81,7 +81,7 @@ class ProcessDataset(object):
     def get_paths(self, name:str):
         for path,dirs,files in os.walk(name):
             for filename in files:
-                if filename.endswith(('.jpg', '.jpeg', '.gif', '.png')):
+                if filename.endswith(('.jpg', '.jpeg', '.png')):
                     fullname = os.path.abspath(os.path.join(path,filename))
                     self.img_paths.append(fullname)
     
@@ -91,5 +91,6 @@ class ProcessDataset(object):
 
         from_directory = dataset_name
         to_directory = f"{dataset_name}_processed"
-
+        print("start clone")
         shutil.copytree(from_directory, to_directory)
+        print("cloned")
