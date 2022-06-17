@@ -1,10 +1,8 @@
-from process_image import ProcessImage as P
-
+from process_image import ProcessDataset 
 import os
 import fnmatch
 import shutil
+import cv2
 
-from_directory = "Dataset"
-to_directory = "Dataset_processed"
-
-shutil.copytree(from_directory, to_directory)
+DatasetProcessor = ProcessDataset()
+DatasetProcessor('DBZ',128,128)
